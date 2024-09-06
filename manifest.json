@@ -1,0 +1,34 @@
+{
+	"name": "Ask Echo",
+	"description": "Powerful Amazon product research tool",
+	"version": "0.1.0",
+	"manifest_version": 3,
+	"icons": {
+		"16": "public/logo.png",
+		"48": "public/logo.png",
+		"128": "public/logo.png"
+	},
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": "public/logo.png"
+	},
+	"background": {
+		"service_worker": "background.js"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://www.amazon.in/*"],
+			"js": ["content-script.js"]
+		}
+	],
+	"permissions": [
+		"tabs",
+		"scripting",
+		"storage",
+		"activeTab",
+		"webRequest",
+		"debugger",
+		"webNavigation"
+	],
+	"host_permissions": ["https://www.amazon.in/*"]
+}
